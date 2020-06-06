@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Superhéroes</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body onload=" conectionApi(armarUrl(estado.pagina, inputBuscador.value, estado.idSelecc))">
+    <header id="portada">
+      <div class="portada">
+      <h1>Mis Superhéroes</h1>
+      <h5>Lista tus superhéroes favoritos de Marvel</h5>
+    </div>
+      <img src="../public/ironmanPlain.jpg" alt="ironman">
+    </header>
+
+    <div class="search-box" id="buscador-box">
+        <input type="text" id="buscador-input" placeholder="Nombre del Superhéroe" value="">
+        <button id="buscador-btn"> 
+            <i class="fa fa-search"></i>
+           </button>
+    </div>  
+
+    <main>
+      <h2>Listado</h2>
+        <div id="contenedor" class="">
+            
+            <!-- <button>Superheroe</button> -->
+            <!-- <img src="" alt=""> -->
+            
+        </div>
+
+    </main>
+<div id="paginacion" class="btn-group"></div>
+    <script src="../scripts/superheroes.js"></script>
+  </body>
+</html>
