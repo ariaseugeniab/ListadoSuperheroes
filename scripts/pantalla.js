@@ -1,4 +1,6 @@
 let Pantalla = {
+
+    //estado de la pantalla
     estado: {
         pagina: 1,
         filas: 20,
@@ -6,6 +8,7 @@ let Pantalla = {
         idSelecc: '',
     },
 
+    //elementos del DOM
     divBotones: document.getElementById('paginacion'),
     contenedor: document.getElementById("contenedor"),
     inputBuscador: document.getElementById('buscador-input'),
@@ -49,32 +52,12 @@ let Pantalla = {
         }
     },
 
-    renderizarLista(listado) {
-        this.contenedor.innerHTML = '';
-        let paginas = Math.ceil(listado.total / this.estado.filas)
-
-        if (paginas > 73) {
-            paginas = 73
-        }
-
-        listado.results.forEach((el) => {
-            this.armarListado(el.thumbnail.path, el.thumbnail.extension, el.name, el.id)
-        })
-        this.botonesPag(paginas)
-    },
-
-    renderizarDetalles(infoSuperheroe) {
-        this.containerInfo.innerHTML = '';
-        // console.log(infoSuperheroe.results[0].urls)
-        this.armarDetalles(infoSuperheroe.results[0].name, infoSuperheroe.results[0].description, infoSuperheroe.results[0].thumbnail.path, infoSuperheroe.results[0].thumbnail.extension, infoSuperheroe.results[0].urls)
-    },
-
     armarListado(imagen, ext, nombre, id) {
         let div = document.createElement('div');
         div.setAttribute("class", "col-md-6")
         div.innerHTML =
             // `<span><i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i> </span>
-            `<button id=${id} class="Sh-elegido" onclick="Pantalla.getId(this.id)">
+            `<button id=${id} class="Sh-elegido" onclick="Render.getId(this.id)">
                 <img src="${imagen}.${ext}" alt= ${nombre} class= ".img-fluid">
                 <h4>${nombre}</h4>
             
@@ -127,30 +110,24 @@ let Pantalla = {
         this.contenedor.appendChild(div)
     },
 
-    getId(clicked_id) {
-
-        window.localStorage.setItem('idSuperheroe', clicked_id)
-        location.href = '/cliente/html/infoSh.html'
-    }
-
 }
 
 //eventos
 Pantalla.buscadorBtn.addEventListener('click', () => {
     Pantalla.contenedor.innerHTML = ''
-    Conexion.conectionApi(Conexion.armarUrl(Pantalla.estado.pagina, Pantalla.inputBuscador.value, Pantalla.estado.idSelecc))
+    Conexion.iniciarConexion();
     Pantalla.inputBuscador.value = ''
 })
 
 Pantalla.divBotones.addEventListener('click', (e) => {
     Pantalla.contenedor.innerHTML = ''
     Pantalla.estado.pagina = parseInt(e.target.value)
-    Conexion.conectionApi(Conexion.armarUrl(Pantalla.estado.pagina, Pantalla.inputBuscador.value, Pantalla.estado.idSelecc))
+    Conexion.iniciarConexion();
 })
 
 Pantalla.header.addEventListener('click', () => {
     Pantalla.contenedor.innerHTML = ''
     Pantalla.inputBuscador.value = '';
     Pantalla.estado.pagina = 1
-    Conexion.conectionApi(Conexion.armarUrl(Pantalla.estado.pagina, Pantalla.inputBuscador.value, Pantalla.estado.idSelecc))
+    Conexion.iniciarConexion();
 })

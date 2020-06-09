@@ -40,17 +40,21 @@ let Conexion = {
 
             }
             else if(window.location.pathname.includes('/cliente/html/index.html')){
-                Pantalla.renderizarLista(json.data);
+                Render.renderizarLista(json.data);
                 console.log(json.data)
             }
             else if(window.location.pathname.includes('/cliente/html/infoSh.html')) {
                 console.log(json.data)
-                Pantalla.renderizarDetalles(json.data);
+                Render.renderizarDetalles(json.data);
 
             }
         })
 
     },
+
+    iniciarConexion(){
+        this.conectionApi(this.armarUrl(Pantalla.estado.pagina, Pantalla.inputBuscador.value, Pantalla.estado.idSelecc))
+    }
 
 }
 
