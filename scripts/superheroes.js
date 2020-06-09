@@ -14,8 +14,6 @@ let contenedor = document.getElementById("contenedor");
 let inputBuscador = document.getElementById('buscador-input');
 let buscadorBtn = document.getElementById('buscador-btn');
 let header = document.getElementById('portada');
-let star = document.getElementById('star')
-
 
 //info sh
 let containerInfo = document.getElementById('container-info')
@@ -46,9 +44,6 @@ function armarUrl(pagina, nombrequery, id) {
         urlApi = urlBase + `&limit=${estado.filas}&offset=${queryOffset}`
 
     }
-
-    // console.log(pagina, nombrequery,id)
-    // console.log(estado)
     return urlApi
 
 }
@@ -58,8 +53,15 @@ function conectionApi(url){
         .then((res) => res.json())
         .then((json) => {
 
-            if(window.location.pathname.includes('/cliente/html/index.html')){
+            if (json.data.results.length == 0){
+
+            mensajeError();
+            return
+
+            }
+            else if(window.location.pathname.includes('/cliente/html/index.html')){
                 renderizarLista(json.data);
+                console.log(json.data)
             }
             else if(window.location.pathname.includes('/cliente/html/infoSh.html')) {
                 console.log(json.data)
@@ -68,14 +70,9 @@ function conectionApi(url){
                 // return true
 
             }
-
-            // console.log(json.data)
-            // estado.respuesta = json.data
         })
 }
 
-
-// conectionApi(armarUrl(estado.pagina, inputBuscador.value, estado.idSelecc))
 
 divBotones.addEventListener('click', (e)=>{
     contenedor.innerHTML = ''
@@ -95,10 +92,6 @@ inputBuscador.value = '';
 estado.pagina = 1
 // estado.idSelecc = ''   
 conectionApi(armarUrl(estado.pagina, inputBuscador.value, estado.idSelecc))})
-
-star.addEventListener('click', (e)=>{
-
-})
 
 function renderizarLista(listado) {
     contenedor.innerHTML = '';
@@ -122,55 +115,73 @@ function renderizarDetalles(infoSuperheroe){
 
 
 function armarDetalles(nombre, descripcion, imagen, extension){
-    // let divImg = document.getElementById('imagen-sh')
-    // let divDetalles = document.getElementById('detalles-sh')
 
     divImg.innerHTML= `<img src="${imagen}.${extension}" alt="${nombre}" class=".img-fluid">`
-    // console.log(imagen, extension)
 
-    divDetalles.innerHTML = `<span>
-    <i class="fa fa-star" id="star"></i>
+    divDetalles.innerHTML = 
+    
+    // <span>
+    // <i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i>
+    // </span>
+    `
+    <div>
     <h2>${nombre}</h2>
-    <h3>Descripción</h3>
+    <h4>Descripción</h4>
     <p>${descripcion}</p>
-    </span>` 
+    <h4>Comics</h4>
+        <a href=""></a>
+    </div>` 
 
     containerInfo.appendChild(divImg);
     containerInfo.appendChild(divDetalles)
-
 }
 
-
+function mensajeError(){
+    let div = document.createElement('div')
+    div.innerHTML= `
+    <h3>No se han encontrado superhéroes</h3>
+    `
+    contenedor.appendChild(div)
+}
 
 function getId(clicked_id){
-         estado.idSelecc = parseInt(clicked_id)
-        //  console.log(estado.idSelecc)
-        // setTimeout(),1000)
-        conectionApi(armarUrl(estado.pagina, inputBuscador.value, parseInt(clicked_id)))
 
+        window.localStorage.setItem('idSuperheroe', clicked_id)
         location.href='/cliente/html/infoSh.html'
-        // console.log(estado)
-        //  renderizarDetalles()
-}
+};
 
+// function agregarFavorito(idSuperheroe){
+// console.log(idSuperheroe)
+// }
 
 
 function armarListado(imagen, ext, nombre,id) {
-    let img = document.createElement('img');
-    let div = document.createElement('div')
-    let btn = document.createElement('button');
-    btn.setAttribute("id", `${id}`);
-    btn.setAttribute("class", "Sh-elegido")
-    btn.setAttribute("onclick", "getId(this.id)")
-    img.setAttribute("src", `${imagen}.${ext}`)
-    img.setAttribute("alt", nombre);
-    img.setAttribute("class", ".img-fluid")
-    // img.setAttribute("id", "Sh")
+    let div = document.createElement('div');
     div.setAttribute("class", "col-6")
-    div.innerHTML =`${nombre} <i class="fa fa-star" id="star"></i>`
-    btn.appendChild(div)
-    btn.appendChild(img)
-    contenedor.appendChild(btn)
+    div.innerHTML = 
+    // `<span><i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i> </span>
+        `<button id=${id} class="Sh-elegido" onclick="getId(this.id)">
+            <img src="${imagen}.${ext}" alt= ${nombre} class= ".img-fluid">
+            <h4>${nombre}</h4>
+        
+        </button>`
+
+    contenedor.appendChild(div)
+
+    // let img = document.createElement('img');
+    // let div = document.createElement('div')
+    // let btn = document.createElement('button');
+    // btn.setAttribute("id", `${id}`);
+    // btn.setAttribute("class", "Sh-elegido")
+    // btn.setAttribute("onclick", "getId(this.id)")
+    // img.setAttribute("src", `${imagen}.${ext}`)
+    // img.setAttribute("alt", nombre);
+    // img.setAttribute("class", ".img-fluid")
+
+    // div.innerHTML =`${nombre} <span><i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i> </span>`
+    // btn.appendChild(div)
+    // btn.appendChild(img)
+    // contenedor.appendChild(btn)
 }
 
 function botonesPag(paginas){
