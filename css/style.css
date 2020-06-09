@@ -131,6 +131,26 @@ div#imagen-sh img{
 
 }
 
+#div-sh{
+display: block;
+
+}
+/* info superheroes*/
+#container-info{
+
+	display: inline;
+}
+
+#imagen-sh{
+
+	float: left;
+
+}
+
+#detalles-sh{
+	float: right;
+}
+
 /* #buscador:focus{
 	background-color: #9f7e39 ;
 } */

@@ -55,6 +55,7 @@ let Pantalla = {
     armarListado(imagen, ext, nombre, id) {
         let div = document.createElement('div');
         div.setAttribute("class", "col-md-6")
+        div.setAttribute('id', 'div-sh')
         div.innerHTML =
             // `<span><i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i> </span>
             `<button id=${id} class="Sh-elegido" onclick="Render.getId(this.id)">
@@ -129,5 +130,6 @@ Pantalla.header.addEventListener('click', () => {
     Pantalla.contenedor.innerHTML = ''
     Pantalla.inputBuscador.value = '';
     Pantalla.estado.pagina = 1
-    Conexion.iniciarConexion();
+    // Conexion.iniciarConexion();
+    location.href = '../index.html'
 })
