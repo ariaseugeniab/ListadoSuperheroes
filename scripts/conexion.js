@@ -39,7 +39,7 @@ let Conexion = {
             return
 
             }
-            else if(window.location.pathname.includes('/cliente/html/index.html')){
+            else if(window.location.pathname.includes('index.html')){
                 Render.renderizarLista(json.data);
                 console.log(json.data)
             }
