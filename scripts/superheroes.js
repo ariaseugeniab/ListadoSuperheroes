@@ -65,9 +65,7 @@ function conectionApi(url){
             }
             else if(window.location.pathname.includes('/cliente/html/infoSh.html')) {
                 console.log(json.data)
-                // console.log(estado)
                 renderizarDetalles(json.data);
-                // return true
 
             }
         })
@@ -78,7 +76,6 @@ divBotones.addEventListener('click', (e)=>{
     contenedor.innerHTML = ''
     estado.pagina = parseInt(e.target.value)
     conectionApi(armarUrl(estado.pagina, inputBuscador.value,estado.idSelecc))
-    // console.log(estado)
 })
 
 buscadorBtn.addEventListener('click', () => {
@@ -110,27 +107,42 @@ function renderizarLista(listado) {
 
 function renderizarDetalles(infoSuperheroe){
     containerInfo.innerHTML = '';
-    armarDetalles(infoSuperheroe.results[0].name, infoSuperheroe.results[0].description,infoSuperheroe.results[0].thumbnail.path, infoSuperheroe.results[0].thumbnail.extension)
+    console.log(infoSuperheroe.results[0].urls)
+    armarDetalles(infoSuperheroe.results[0].name, infoSuperheroe.results[0].description,infoSuperheroe.results[0].thumbnail.path, infoSuperheroe.results[0].thumbnail.extension, infoSuperheroe.results[0].urls)
 }
 
 
-function armarDetalles(nombre, descripcion, imagen, extension){
+function armarDetalles(nombre, descripcion, imagen, extension, urls){
 
     divImg.innerHTML= `<img src="${imagen}.${extension}" alt="${nombre}" class=".img-fluid">`
 
     divDetalles.innerHTML = 
-    
-    // <span>
-    // <i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i>
+    // <span><i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i>
     // </span>
     `
     <div>
     <h2>${nombre}</h2>
-    <h4>Descripción</h4>
-    <p>${descripcion}</p>
-    <h4>Comics</h4>
-        <a href=""></a>
     </div>` 
+
+    if(descripcion.length > 0){
+
+        divDetalles.innerHTML += 
+        `    <h4>Descripción</h4>
+        <p>${descripcion}</p>`
+    }
+
+    let divUrls = document.createElement('div')
+    
+    if (urls.length > 0){
+        divUrls.innerHTML = `<h4>Links</h4>`
+
+        urls.forEach(el=>{
+            divUrls.innerHTML += `
+            <a href="${el.url}" target="_blank">${el.type}</a>
+            `
+            divDetalles.appendChild(divUrls)
+        })
+    }
 
     containerInfo.appendChild(divImg);
     containerInfo.appendChild(divDetalles)
@@ -157,7 +169,7 @@ function getId(clicked_id){
 
 function armarListado(imagen, ext, nombre,id) {
     let div = document.createElement('div');
-    div.setAttribute("class", "col-6")
+    div.setAttribute("class", "col-md-6")
     div.innerHTML = 
     // `<span><i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i> </span>
         `<button id=${id} class="Sh-elegido" onclick="getId(this.id)">
@@ -168,20 +180,6 @@ function armarListado(imagen, ext, nombre,id) {
 
     contenedor.appendChild(div)
 
-    // let img = document.createElement('img');
-    // let div = document.createElement('div')
-    // let btn = document.createElement('button');
-    // btn.setAttribute("id", `${id}`);
-    // btn.setAttribute("class", "Sh-elegido")
-    // btn.setAttribute("onclick", "getId(this.id)")
-    // img.setAttribute("src", `${imagen}.${ext}`)
-    // img.setAttribute("alt", nombre);
-    // img.setAttribute("class", ".img-fluid")
-
-    // div.innerHTML =`${nombre} <span><i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i> </span>`
-    // btn.appendChild(div)
-    // btn.appendChild(img)
-    // contenedor.appendChild(btn)
 }
 
 function botonesPag(paginas){
