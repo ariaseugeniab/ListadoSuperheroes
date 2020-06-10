@@ -19,28 +19,32 @@
     />
   </head>
   <body onload="Conexion.iniciarConexion();">
-    <header id="portada">
-      <div class="portada">
+    <header id="portada" class="navbar navbar-light bg-light">
+      <div class="titulos-portada">
         <h1>Mis Superhéroes</h1>
         <h5>Lista tus superhéroes favoritos de Marvel</h5>
       </div>
       <img src="public/ironmanPlain.jpg" alt="ironman" />
     </header>
 
-    <div class="search-box" id="buscador-box">
-      <input
-        type="text"
-        id="buscador-input"
-        placeholder="Nombre del Superhéroe"
-        value=""
-      />
-      <button id="buscador-btn">
-        <i class="fa fa-search"></i>
-      </button>
+    <div class="navbar navbar-light sticky-top" id="navbar">
+      <h2 class="navbar-brand">Listado</h2>
+
+      <div class="" id="buscador-box">
+        <input
+          type="text"
+          id="buscador-input"
+          placeholder="Nombre del Superhéroe"
+          value=""
+          class=""
+        />
+        <button id="buscador-btn">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
     </div>
 
     <main>
-      <h2>Listado</h2>
       <div class="container">
         <div id="contenedor" class="row"></div>
       </div>

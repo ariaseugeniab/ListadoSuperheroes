@@ -15,7 +15,7 @@
 }
 
 body {
-	background-color: #e6e6e6;
+	background-color: #ffffff;
 	color: #2b3538;
 	font-family: sansation , sans-serif;
 	font-weight: 400;
@@ -34,45 +34,60 @@ body {
 header {
 	clear: both;
 }
-.portada {
+.titulos-portada {
 	background-color: #b69f41;
 	color: #FFF;
 	padding: 10% 5%;
 	float: left;
 	cursor: pointer;
-	-webkit-box-shadow: 5px 5px 8px -1px rgba(135,135,135,1);
--moz-box-shadow: 5px 5px 8px -1px rgba(135,135,135,1);
-box-shadow: 5px 5px 8px -1px rgba(135,135,135,1);
+	-webkit-box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
+-moz-box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
+box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
 }
 
-#portada:hover > .portada{
+#portada:hover > .titulos-portada{
 	background-color: #9f7e39;
 }
 
+/* #portada{
+	background-color:#b69f41;
+} */
 /* imagen ironman */
 header img{
 	width: 50%;
 }
 
+#navbar{
+	background-color: #FFF;
+}
 /* div buscador */
 #buscador-box {
-	position: absolute;
+	/* position: static; */
 	/* position: sticky; */
-	/* float: right; */
-	top: 50%;
-	left: 70%;
-	transform: translate(-50%,-50%);
+	float: right;
+	/* top: 50%;
+	left: 70%; */
+	/* transform: translate(-50%,-50%); */
 	background-color: #b69f41;
 	height: 60px;
 	border-radius: 40px;
 	padding: 10px;
+	width: 50%;
 }
 
-#buscador-box:hover > #buscador-input{
+/* #buscador-box:hover > #buscador-input{
+	width: 240px;
+	padding: 0 6px;
+} */
+
+/* #buscador-box:selecrt > #buscador-input{
 	width: 240px;
 	padding: 0 6px;
 }
-
+#buscador-box:select > #buscador-btn{
+	background: white;
+	color: #9f7e39;
+} */
 /* #buscador-input:keydown {
 	width: 240px;
 	padding: 0 6px;
@@ -82,6 +97,8 @@ header img{
 	background: white;
 	color: #9f7e39;
 }
+
+
 
 #buscador-btn {
 	color: #ffffff;
@@ -108,12 +125,19 @@ header img{
 	font-size: 16px;
 	transition: 0.4s;
 	line-height: 40px;
-	width: 0px;
+	/* width: 0px; */
+	width: 85%;
+	padding: 0 6px;
+	color-adjust: ;
 	/* background
 	-color: #b69f41;
 	color: #fff;
 	float: left;
 	display: inline; */
+}
+
+.navbar-brand{
+	font-size: xx-large;
 }
 
 /* funcionalidad favoritos*/
@@ -134,16 +158,16 @@ header img{
 /* #contenedor div {
 	padding: 5% 15%
 } */
-/* .card {
-	flex-direction: row;
-	/* border-radius: 50%; */
-/* 
-.col-sm-4{
+.card {
+	-webkit-box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
+-moz-box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
+box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
+}
 
-	flex: 0 0 33.333333%;
-	max-width: 33.333333%;
-	position: relative;
-} */
+.col-md-3{
+	padding: 15px;
+	margin: 15px
+}
 
 #div-sh{
 /* display: block; */
@@ -153,8 +177,8 @@ cursor: pointer;
 
 }
 
-#div-sh:hover{
-	background-color: aqua;
+.card:hover{
+	background-color: #a5a5a5;
 }
 /* info superheroes*/
 #container-info{
@@ -207,15 +231,17 @@ h2 {
 	clear: both;
 	display: block;
 }
-.card-img-top{
+/* .card-img-top{
 	border-radius: 50%;
-}
+} */
 #paginacion button {
 	background-color: #b69f41;
+	border: 2px solid #b69f41
 }
 
 #paginacion button:hover {
 	background-color: #9f7e39;
+	border: 2px solid #9f7e39
 }
 
 

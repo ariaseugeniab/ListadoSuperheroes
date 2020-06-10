@@ -107,6 +107,7 @@ let Pantalla = {
         `
         this.contenedor.appendChild(div)
     },
+    
 
 }
 
