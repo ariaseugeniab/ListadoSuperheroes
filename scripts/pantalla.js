@@ -69,21 +69,22 @@ let Pantalla = {
 
     armarDetalles(nombre, descripcion, imagen, extension, urls) {
 
-        this.divImg.innerHTML = `<img src="${imagen}.${extension}" alt="${nombre}" class=".img-fluid">`
+        this.divImg.innerHTML = `<img src="${imagen}.${extension}" alt="${nombre}" class="card-img">`
 
-        this.containerInfo.innerHTML =
+        this.divDetalles.innerHTML =
             // <span onclick="agregarFavorito(this.id)"><i class="fa fa-star"></i>
             // </span>
-            `<h2>${nombre}</h2>`
+            `<h2 class="card-title">${nombre}</h2>`
 
         if (descripcion.length > 0) {
 
             this.divDetalles.innerHTML +=
                 `    <h4>Descripción</h4>
-            <p>${descripcion}</p>`
+            <p class="card-text">${descripcion}</p>`
         }
 
         let divUrls = document.createElement('div')
+        divUrls.setAttribute("class", "card-text")
 
         if (urls.length > 0) {
             divUrls.innerHTML = `<h4>Links</h4>`

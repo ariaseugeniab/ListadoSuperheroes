@@ -181,16 +181,14 @@ cursor: pointer;
 	background-color: #a5a5a5;
 }
 /* info superheroes*/
-#container-info{
+/* #container-info{
 	background-color: #ffffff;
-	/* display: inline; */
 }
 
 main img {
 	width: 25%;
 	height: 25%;
-	/* border-radius: 50%; */
-}
+} */
 
 
 /* button:hover{
@@ -198,7 +196,7 @@ main img {
 } */
 
 /* superheroe info */
-div#imagen-sh img{
+/* div#imagen-sh img{
 	width: 50%;
 	height: 50%;
 	border-radius: 2px;
@@ -209,13 +207,11 @@ div#imagen-sh img{
 #imagen-sh{
 
 	float: left;
-	/* background-color: #b69f41; */
-
 }
 
 #detalles-sh{
 	float: right;
-}
+} */
 
 /* #buscador:focus{
 	background-color: #9f7e39 ;
