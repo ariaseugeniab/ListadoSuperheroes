@@ -54,14 +54,15 @@ let Pantalla = {
 
     armarListado(imagen, ext, nombre, id) {
         let div = document.createElement('div');
-        div.setAttribute("class", "card")
+        div.setAttribute("class", "col-md-3")
         div.setAttribute('id', 'div-sh')
         div.innerHTML =
-            // `<span onclick="agregarFavorito(this.id)"><i class="fa fa-star"></i> </span>
-            `<img src="${imagen}.${ext}" alt= ${nombre} class= "card-img-top">
-            <div class="card-body" id= ${id} onclick="Render.getId(this.id)">
+            `<div class="card" id= ${id} onclick="Render.getId(this.id)">
+            <img src="${imagen}.${ext}" alt= ${nombre} class="card-img-top">
+                <div class="card-body">
                 <h4 class="card-title">${nombre}</h4>
-            <div>`
+                </div>
+            </div>`
 
         this.contenedor.appendChild(div)
     },
