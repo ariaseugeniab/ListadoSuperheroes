@@ -43,7 +43,7 @@ let Conexion = {
                 Render.renderizarLista(json.data);
                 console.log(json.data)
             }
-            else if(window.location.pathname.includes('/infoSh.html')) {
+            else if(window.location.pathname.includes('infoSh.html')) {
                 console.log(json.data)
                 Render.renderizarDetalles(json.data);
 
