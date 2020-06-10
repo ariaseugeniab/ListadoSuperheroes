@@ -1,4 +1,4 @@
-@import url("normalize.css");
+
 @font-face {
 	font-family: neufreit;
 	src: url(../public/Neufreit-ExtraBold.otf);
@@ -30,7 +30,7 @@ body {
 	display: grid;
 	grid-gap: 20px;
 }
-
+/* portada*/
 header {
 	clear: both;
 }
@@ -48,15 +48,18 @@ box-shadow: 5px 5px 8px -1px rgba(135,135,135,1);
 #portada:hover > .portada{
 	background-color: #9f7e39;
 }
+
+/* imagen ironman */
 header img{
 	width: 50%;
 }
 
+/* div buscador */
 #buscador-box {
 	position: absolute;
 	/* position: sticky; */
 	/* float: right; */
-	top: 70%;
+	top: 50%;
 	left: 70%;
 	transform: translate(-50%,-50%);
 	background-color: #b69f41;
@@ -113,7 +116,8 @@ header img{
 	display: inline; */
 }
 
-#star{
+/* funcionalidad favoritos*/
+/* #star{
 	color:grey
 }
 
@@ -123,27 +127,66 @@ header img{
 
 #star:click{
 	color:#b69f41;
+} */
+
+/* contenedor de cada carta*/
+
+/* #contenedor div {
+	padding: 5% 15%
+} */
+.card {
+	flex-direction: row;
+	/* border-radius: 50%; */
 }
 
-div#imagen-sh img{
-	width: 80%;
-	border-radius: 2px;
+.col-sm-4{
 
+	flex: 0 0 33.333333%;
+	max-width: 33.333333%;
+	position: relative;
 }
 
 #div-sh{
-display: block;
+/* display: block; */
+/* width: 50%; */
+cursor: pointer;
+/* margin-bottom: auto; */
 
+}
+
+#div-sh:hover{
+	background-color: aqua;
 }
 /* info superheroes*/
 #container-info{
+	background-color: #ffffff;
+	/* display: inline; */
+}
 
-	display: inline;
+main img {
+	width: 25%;
+	height: 25%;
+	/* border-radius: 50%; */
+}
+
+
+/* button:hover{
+	background-color: #51b093
+} */
+
+/* superheroe info */
+div#imagen-sh img{
+	width: 50%;
+	height: 50%;
+	border-radius: 2px;
+	margin: 5px solid #b69f41
+
 }
 
 #imagen-sh{
 
 	float: left;
+	/* background-color: #b69f41; */
 
 }
 
@@ -165,7 +208,9 @@ h2 {
 	clear: both;
 	display: block;
 }
-
+.card-img-top{
+	border-radius: 50%;
+}
 #paginacion button {
 	background-color: #b69f41;
 }
@@ -174,25 +219,13 @@ h2 {
 	background-color: #9f7e39;
 }
 
-main img {
-	width: 255px;
-	height: 255px;
-	border-radius: 50%;
-}
-
-#contenedor div {
-	padding: 5% 15%
-}
-
-button:hover{
-	background-color: #51b093
-}
 
 
-@media only screen and (max-width: 480px) {
+
+/* @media only screen and (max-width: 480px) {
 	.paso-1 .btn-film {
 		width: 78px;
 		font-size: 12px;
 	}
 
-}
+} */

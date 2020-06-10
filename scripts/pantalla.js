@@ -54,15 +54,14 @@ let Pantalla = {
 
     armarListado(imagen, ext, nombre, id) {
         let div = document.createElement('div');
-        div.setAttribute("class", "col-md-6")
+        div.setAttribute("class", "card")
         div.setAttribute('id', 'div-sh')
         div.innerHTML =
-            // `<span><i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i> </span>
-            `<button id=${id} class="Sh-elegido" onclick="Render.getId(this.id)">
-                <img src="${imagen}.${ext}" alt= ${nombre} class= ".img-fluid">
-                <h4>${nombre}</h4>
-            
-            </button>`
+            // `<span onclick="agregarFavorito(this.id)"><i class="fa fa-star"></i> </span>
+            `<img src="${imagen}.${ext}" alt= ${nombre} class= "card-img-top">
+            <div class="card-body" id= ${id} onclick="Render.getId(this.id)">
+                <h4 class="card-title">${nombre}</h4>
+            <div>`
 
         this.contenedor.appendChild(div)
     },
@@ -71,13 +70,10 @@ let Pantalla = {
 
         this.divImg.innerHTML = `<img src="${imagen}.${extension}" alt="${nombre}" class=".img-fluid">`
 
-        this.divDetalles.innerHTML =
-            // <span><i class="fa fa-star" id="star" onclick="agregarFavorito(this.id)"></i>
+        this.containerInfo.innerHTML =
+            // <span onclick="agregarFavorito(this.id)"><i class="fa fa-star"></i>
             // </span>
-            `
-        <div>
-        <h2>${nombre}</h2>
-        </div>`
+            `<h2>${nombre}</h2>`
 
         if (descripcion.length > 0) {
 
@@ -130,6 +126,6 @@ Pantalla.header.addEventListener('click', () => {
     Pantalla.contenedor.innerHTML = ''
     Pantalla.inputBuscador.value = '';
     Pantalla.estado.pagina = 1
-    // Conexion.iniciarConexion();
-    location.href = '../index.html'
+    Conexion.iniciarConexion();
+    // location.href = '../index.html'
 })
