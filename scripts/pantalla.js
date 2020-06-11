@@ -107,15 +107,26 @@ let Pantalla = {
         <h3>No se han encontrado superhéroes</h3>
         `
         this.contenedor.appendChild(div)
+        Pantalla.inputBuscador.value = '';
+        Pantalla.estado.pagina = 1
     },
+
+    buscarSh(e){
+        if(e.keyCode === 13){
+            e.preventDefault();
+            Pantalla.contenedor.innerHTML = ''
+            Conexion.iniciarConexion();
+            this.inputBuscador.value = ''
+        }
+    }
 }
 
 //eventos
-Pantalla.buscadorBtn.addEventListener('click', () => {
-    Pantalla.contenedor.innerHTML = ''
-    Conexion.iniciarConexion();
-    Pantalla.inputBuscador.value = ''
-})
+Pantalla.buscadorBtn.addEventListener('click',()=>{
+            Pantalla.contenedor.innerHTML = ''
+        Conexion.iniciarConexion();
+        Pantalla.inputBuscador.value = ''
+} )
 
 Pantalla.divBotones.addEventListener('click', (e) => {
     Pantalla.contenedor.innerHTML = ''

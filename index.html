@@ -31,13 +31,16 @@
       <h2 class="navbar-brand">Listado</h2>
 
       <div class="" id="buscador-box">
+        <!-- <form onsubmit="Pantalla.buscarSh()"> -->
         <input
           type="text"
           id="buscador-input"
           placeholder="Nombre del Superhéroe"
           value=""
           class=""
+          onkeydown="Pantalla.buscarSh(event)"
         />
+      <!-- </form>  -->
         <button id="buscador-btn">
           <i class="fa fa-search"></i>
         </button>
