@@ -132,7 +132,9 @@ Pantalla.buscadorBtn.addEventListener('click',()=>{
 
 Pantalla.divBotones.addEventListener('click', (e) => {
     Pantalla.contenedor.innerHTML = ''
-    Pantalla.estado.pagina = parseInt(e.target.value)
+    let btnSelecc = e.target;
+    // btnSelecc.setAttribute("class", "seleccionado")
+    Pantalla.estado.pagina = parseInt(btnSelecc.value)
     Conexion.iniciarConexion();
 })
 
