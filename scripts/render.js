@@ -4,8 +4,8 @@ let Render ={
         Pantalla.contenedor.innerHTML = '';
         let paginas = Math.ceil(listado.total / Pantalla.estado.filas)
 
-        if (paginas > 73) {
-            paginas = 73
+        if (paginas > 70) {
+            paginas = 70
         }
 
         listado.results.forEach((el) => {

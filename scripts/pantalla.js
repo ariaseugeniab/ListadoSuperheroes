@@ -3,7 +3,7 @@ let Pantalla = {
     //estado de la pantalla
     estado: {
         pagina: 1,
-        filas: 20,
+        filas: 21,
         window: 5,
         idSelecc: '',
     },
@@ -49,6 +49,8 @@ let Pantalla = {
         if (this.estado.pagina != paginas) {
             this.divBotones.innerHTML += `<button value="${paginas}" class="page btn btn-sm btn-info">&#62; &#62;</button>`
         }
+
+        // if(this.estado.pagina == )
     },
 
     armarListado(imagen, ext, nombre, id) {
