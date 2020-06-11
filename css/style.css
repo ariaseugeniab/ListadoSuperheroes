@@ -177,10 +177,54 @@ cursor: pointer;
 
 }
 
-.card:hover{
+#contenedor .card:hover{
 	background-color: #a5a5a5;
 }
+
+div.card-body > a {
+	color: #2b3538;
+	text-decoration: none;
+	font-weight: lighter;
+	font-size: 1.2em ;
+	display: inline-block;
+		/* width: auto;
+		margin: auto; */
+	text-align: left;
+	padding: 0 20px;
+}
+
+.links-sh{
+	/* background-color: #a5a5a5; */
+	border-radius: 2px;
+	-webkit-box-shadow: 5px 5px 13px -6px rgba(97,97,97,1);
+	-moz-box-shadow: 5px 5px 13px -6px rgba(97,97,97,1);
+	box-shadow: 5px 5px 13px -6px rgba(97,97,97,1);
+	background-color: #e0e0e0;
+
+
+}
+
+.links-sh::after{
+	content: '';
+	display: block;
+	width: 0;
+	height: 5px;
+	background: #b69f41;
+	transition: width .3s;
+}
+
+.links-sh:hover::after{
+	width: 100%;
+	transition: width .3s;
+}
 /* info superheroes*/
+
+/* 
+#imagen-sh{
+
+	margin-right: 5px;
+} */
+
 /* #container-info{
 	background-color: #ffffff;
 }
@@ -202,11 +246,6 @@ main img {
 	border-radius: 2px;
 	margin: 5px solid #b69f41
 
-}
-
-#imagen-sh{
-
-	float: left;
 }
 
 #detalles-sh{

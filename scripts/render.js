@@ -23,8 +23,6 @@ let Render ={
     getId(clicked_id) {
 
         window.localStorage.setItem('idSuperheroe', clicked_id)
-        console.log(window.localStorage.getItem('idSuperheroe'))
         location.href = 'html/infoSh.html'
-        console.log(window.localStorage.getItem('idSuperheroe'))
     }
 }

@@ -15,8 +15,7 @@ let Pantalla = {
     buscadorBtn: document.getElementById('buscador-btn'),
     header: document.getElementById('portada'),
     containerInfo: document.getElementById('container-info'),
-    divImg: document.getElementById('imagen-sh'),
-    divDetalles: document.getElementById('detalles-sh'),
+
 
     //metodos
     botonesPag(paginas) {
@@ -69,36 +68,37 @@ let Pantalla = {
 
     armarDetalles(nombre, descripcion, imagen, extension, urls) {
 
-        this.divImg.innerHTML = `<img src="${imagen}.${extension}" alt="${nombre}" class="card-img">`
+        let divDet = document.createElement('div');
+        divDet.setAttribute("class", "col-md-8")
 
-        this.divDetalles.innerHTML =
-            // <span onclick="agregarFavorito(this.id)"><i class="fa fa-star"></i>
-            // </span>
-            `<h2 class="card-title">${nombre}</h2>`
+        let divBody = document.createElement('div');
+        divBody.setAttribute("class", "card-body")
 
+        this.containerInfo.innerHTML= `
+        <div class="col-md-4" id="imagen-sh">
+        <img src="${imagen}.${extension}" class="card-img" alt="${nombre}">
+        </div>`
+
+        divBody.innerHTML= `<h2 class="card-title">${nombre}</h2>`
+    
         if (descripcion.length > 0) {
 
-            this.divDetalles.innerHTML +=
-                `    <h4>Descripción</h4>
-            <p class="card-text">${descripcion}</p>`
+            divBody.innerHTML +=
+                `<div class="card-text"><h4>Descripción</h4>
+            <p class="card-text">${descripcion}</p></div>`
         }
 
-        let divUrls = document.createElement('div')
-        divUrls.setAttribute("class", "card-text")
-
         if (urls.length > 0) {
-            divUrls.innerHTML = `<h4>Links</h4>`
+            divBody.innerHTML += `<div class="card-text"><br/><h4>Links</h4></div>`
 
             urls.forEach(el => {
-                divUrls.innerHTML += `
-                <a href="${el.url}" target="_blank">${el.type}</a>
-                `
-                this.divDetalles.appendChild(divUrls)
+                divBody.innerHTML += `
+                <a href="${el.url}" target="_blank" class="links-sh">${el.type}</a>`
             })
         }
 
-        this.containerInfo.appendChild(this.divImg);
-        this.containerInfo.appendChild(this.divDetalles)
+        divDet.appendChild(divBody)
+        this.containerInfo.appendChild(divDet)
     },
 
     mensajeError() {
@@ -108,8 +108,6 @@ let Pantalla = {
         `
         this.contenedor.appendChild(div)
     },
-    
-
 }
 
 //eventos
@@ -130,5 +128,4 @@ Pantalla.header.addEventListener('click', () => {
     Pantalla.inputBuscador.value = '';
     Pantalla.estado.pagina = 1
     Conexion.iniciarConexion();
-    // location.href = '../index.html'
 })
