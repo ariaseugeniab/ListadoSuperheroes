@@ -75,24 +75,6 @@ header img{
 	width: 50%;
 }
 
-/* #buscador-box:hover > #buscador-input{
-	width: 240px;
-	padding: 0 6px;
-} */
-
-/* #buscador-box:selecrt > #buscador-input{
-	width: 240px;
-	padding: 0 6px;
-}
-#buscador-box:select > #buscador-btn{
-	background: white;
-	color: #9f7e39;
-} */
-/* #buscador-input:keydown {
-	width: 240px;
-	padding: 0 6px;
-} */
-
 #buscador-box:hover > #buscador-btn{
 	background: white;
 	color: #9f7e39;
@@ -128,12 +110,6 @@ header img{
 	/* width: 0px; */
 	width: 85%;
 	padding: 0 6px;
-	color-adjust: ;
-	/* background
-	-color: #b69f41;
-	color: #fff;
-	float: left;
-	display: inline; */
 }
 
 .navbar-brand{
@@ -154,10 +130,6 @@ header img{
 } */
 
 /* contenedor de cada carta*/
-
-/* #contenedor div {
-	padding: 5% 15%
-} */
 .card {
 	-webkit-box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
 -moz-box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
@@ -217,45 +189,8 @@ div.card-body > a {
 	width: 100%;
 	transition: width .3s;
 }
-/* info superheroes*/
-
-/* 
-#imagen-sh{
-
-	margin-right: 5px;
-} */
-
-/* #container-info{
-	background-color: #ffffff;
-}
-
-main img {
-	width: 25%;
-	height: 25%;
-} */
-
-
-/* button:hover{
-	background-color: #51b093
-} */
 
 /* superheroe info */
-/* div#imagen-sh img{
-	width: 50%;
-	height: 50%;
-	border-radius: 2px;
-	margin: 5px solid #b69f41
-
-}
-
-#detalles-sh{
-	float: right;
-} */
-
-/* #buscador:focus{
-	background-color: #9f7e39 ;
-} */
-
 
 h1{
 	font-family: neufreit;
@@ -266,9 +201,6 @@ h2 {
 	clear: both;
 	display: block;
 }
-/* .card-img-top{
-	border-radius: 50%;
-} */
 #paginacion button {
 	background-color: #b69f41;
 	border: 2px solid #b69f41
