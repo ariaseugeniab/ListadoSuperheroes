@@ -17,7 +17,9 @@ let Render ={
     renderizarDetalles(infoSuperheroe) {
         Pantalla.containerInfo.innerHTML = '';
         // console.log(infoSuperheroe.results[0].urls)
-        Pantalla.armarDetalles(infoSuperheroe.results[0].name, infoSuperheroe.results[0].description, infoSuperheroe.results[0].thumbnail.path, infoSuperheroe.results[0].thumbnail.extension, infoSuperheroe.results[0].urls)
+        Pantalla.armarDetalles(infoSuperheroe.results[0].name, infoSuperheroe.results[0].description, infoSuperheroe.results[0].thumbnail.path, infoSuperheroe.results[0].thumbnail.extension, infoSuperheroe.results[0].urls);
+        Pantalla.botonesPag('')
+        // Pantalla.botonVolver()
     },
 
     getId(clicked_id) {

@@ -19,19 +19,22 @@
     />
   </head>
   <body onload="Conexion.iniciarConexion();">
-    <header id="portada" class="navbar navbar-light bg-light">
+    <header id="portada" class="img-portada-sh">
       <div class="titulos-portada">
         <h1>Mis Superhéroes</h1>
         <h5>Lista tus superhéroes favoritos de Marvel</h5>
       </div>
-      <img src="public/ironmanPlain.jpg" alt="ironman" />
+      <!-- <div class="img-portada-sh">
+      <!-- <img src="public/ironmanPlain.jpg" alt="ironman" /> -->
+      </div> -->
+
     </header>
 
+
     <div class="navbar navbar-light sticky-top" id="navbar">
-      <h2 class="navbar-brand">Listado</h2>
+      <h2 class="navbar-brand" id="titulado">Listado</h2>
 
       <div class="" id="buscador-box">
-        <!-- <form onsubmit="Pantalla.buscarSh()"> -->
         <input
           type="text"
           id="buscador-input"
@@ -40,7 +43,6 @@
           class=""
           onkeydown="Pantalla.buscarSh(event)"
         />
-      <!-- </form>  -->
         <button id="buscador-btn">
           <i class="fa fa-search"></i>
         </button>

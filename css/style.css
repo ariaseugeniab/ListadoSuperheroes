@@ -31,34 +31,53 @@ body {
 	grid-gap: 20px;
 }
 /* portada*/
-header {
-	clear: both;
-}
+
 .titulos-portada {
 	background-color: #b69f41;
 	color: #FFF;
-	padding: 10% 5%;
+	padding: 10% 4%;
 	float: left;
 	cursor: pointer;
-	-webkit-box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
--moz-box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
-box-shadow: 5px 5px 8px -1px rgba(243,243,243,1);
+	height: 400px;
+	text-align: left;
+}
+h1{
+	font-family: neufreit;
+	font-size: 3rem;
+	width: 50%;
+}
+
+h2 {
+	clear: both;
+	display: block;
 }
 
 #portada:hover > .titulos-portada{
 	background-color: #9f7e39;
 }
 
-/* #portada{
-	background-color:#b69f41;
-} */
+
 /* imagen ironman */
-header img{
-	width: 50%;
+.img-portada-sh{
+	/* width: 50%; */
+	/* position: relative; */
+	height: 400px;
+	/* overflow: hidden; */
+	background: url(../public/ironmanPlain.jpg) no-repeat center;
+	background-size: cover;
 }
 
 #navbar{
 	background-color: #FFF;
+}
+
+#titulado{
+
+	border-top: 5px solid #b69f41;
+	border-bottom: 5px solid #b69f41;
+	width: 20%;
+	text-align: center;
+	color: #2b3538;
 }
 /* div buscador */
 #buscador-box {
@@ -102,7 +121,7 @@ header img{
 	transition: 0.4s;
 	line-height: 40px;
 	/* width: 0px; */
-	width: 85%;
+	width: 70%;
 	padding: 0 6px;
 }
 
@@ -149,10 +168,11 @@ div.card-text > p {
 }
 
 div.card-body > a {
-	color: #2b3538;
+	color: #2b3538da;
 	text-decoration: none;
+	/* text-transform: uppercase; */
 	font-weight: lighter;
-	font-size: 1.2em ;
+	font-size: 1.1em ;
 	display: inline-block;
 		/* width: auto;
 		margin: auto; */
@@ -164,10 +184,12 @@ div.card-body > a {
 	/* background-color: #a5a5a5; */
 	border-radius: 5px;
 	margin: 5px;
-	-webkit-box-shadow: 5px 5px 13px -6px rgba(97,97,97,1);
-	-moz-box-shadow: 5px 5px 13px -6px rgba(97,97,97,1);
-	box-shadow: 5px 5px 13px -6px rgba(97,97,97,1);
+	-webkit-box-shadow: 1px 1px 13px -6px rgba(97,97,97,1);
+	-moz-box-shadow: 1px 1px 13px -6px rgba(97,97,97,1);
+	box-shadow: 1px 1px 13px -6px rgba(97,97,97,1);
 	background-color: #e0e0e0;
+
+
 
 }
 
@@ -183,19 +205,12 @@ div.card-body > a {
 .links-sh:hover::after{
 	width: 100%;
 	transition: width .3s;
+	color: #2b3538
 }
 
 /* superheroe info */
 
-h1{
-	font-family: neufreit;
-	font-size: 3rem;
-}
 
-h2 {
-	clear: both;
-	display: block;
-}
 #paginacion button {
 	background-color: #b69f41;
 	border: 2px solid #b69f41
@@ -221,6 +236,9 @@ button .seleccionado {
 	border: 2px solid #9f7e39
 }
 
+#container-info .card-title{
+	border-bottom: 3px solid #b69f41;
+}
 /* @media only screen and (max-width: 480px) {
 	.paso-1 .btn-film {
 		width: 78px;

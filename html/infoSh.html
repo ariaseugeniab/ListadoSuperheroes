@@ -12,24 +12,36 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
-<body onload="Conexion.conectionApi(Conexion.armarUrl(Pantalla.estado.pagina, Pantalla.inputBuscador.value, window.localStorage.getItem('idSuperheroe')))
-">
+<body onload="Conexion.conectionApi(Conexion.armarUrl(Pantalla.estado.pagina, Pantalla.inputBuscador.value, window.localStorage.getItem('idSuperheroe')))">
   </head>
 
-  <body onload="console.log(estado)">
-    <header id="portada" onclick="location.href='../index.html'">
+  <body>
+    <header id="portada" onclick="location.href='../index.html'"  class="img-portada-sh">
       <div class="titulos-portada">
         <h1>Mis Superhéroes</h1>
         <h5>Lista tus superhéroes favoritos de Marvel</h5>
       </div>
-      <img src="../public/ironmanPlain.jpg" alt="ironman" />
+      <div class="img-portada-sh">
+        <!-- <img src="public/ironmanPlain.jpg" alt="ironman" /> -->
+        </div>
     </header>
 
-    <div class="search-box" id="buscador-box">
-      <input type="text" id="buscador-input" placeholder="Nombre del Superhéroe" value="">
-      <button id="buscador-btn">
-        <i class="fa fa-search"></i>
-      </button>
+    <div class="navbar navbar-light sticky-top" id="navbar">
+      <h2 class="navbar-brand" id="titulado">Detalles</h2>
+
+      <div class="" id="buscador-box">
+        <input
+          type="text"
+          id="buscador-input"
+          placeholder="Nombre del Superhéroe"
+          value=""
+          class=""
+          onkeydown="Pantalla.buscarSh(event)"
+        />
+        <button id="buscador-btn">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
     </div>
 
 
@@ -46,7 +58,7 @@
         </div>
       </div>
     </div>
-    <div id="paginacion" class="btn-group"></div>
+    <div id="paginacion" class="btn-group" onclick="location.href='../index.html'"></div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
       </script>

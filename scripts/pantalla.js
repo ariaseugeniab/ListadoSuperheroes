@@ -15,7 +15,7 @@ let Pantalla = {
     buscadorBtn: document.getElementById('buscador-btn'),
     header: document.getElementById('portada'),
     containerInfo: document.getElementById('container-info'),
-
+    titulado: document.getElementById('titulado'),
 
     //metodos
     botonesPag(paginas) {
@@ -43,14 +43,16 @@ let Pantalla = {
         }
 
         if (this.estado.pagina != 1) {
-            this.divBotones.innerHTML = `<button value="${1}" class="page btn btn-sm btn-info">&#60; &#60;</button>` + this.divBotones.innerHTML
+            this.divBotones.innerHTML = `<button value="${1}" class="page btn btn-sm btn-info"><i class="fa fa-angle-double-left"></i></button>` + this.divBotones.innerHTML
         }
 
         if (this.estado.pagina != paginas) {
-            this.divBotones.innerHTML += `<button value="${paginas}" class="page btn btn-sm btn-info">&#62; &#62;</button>`
+            this.divBotones.innerHTML += `<button value="${paginas}" class="page btn btn-sm btn-info"><i class="fa fa-angle-double-right"></i></button>`
         }
 
-        // if(this.estado.pagina == )
+        if(paginas == ''){
+            this.divBotones.innerHTML = `<button value="${1}" class ="page btn btn-sm btn-info"><i class="fa fa-arrow-left"></i></button>`
+        }
     },
 
     armarListado(imagen, ext, nombre, id) {
@@ -87,11 +89,11 @@ let Pantalla = {
 
             divBody.innerHTML +=
                 `<div class="card-text"><h4>Descripción</h4>
-            <p class="card-text">${descripcion}</p></div>`
+            <p class="card-text">${descripcion}</p><br/></div>`
         }
 
         if (urls.length > 0) {
-            divBody.innerHTML += `<div class="card-text"><br/><h4>Links</h4></div>`
+            divBody.innerHTML += `<div class="card-text"><h4>Links</h4></div>`
 
             urls.forEach(el => {
                 divBody.innerHTML += `
@@ -111,36 +113,45 @@ let Pantalla = {
         this.contenedor.appendChild(div)
         Pantalla.inputBuscador.value = '';
         Pantalla.estado.pagina = 1
+        Pantalla.divBotones.innerHTML= ''
     },
 
     buscarSh(e){
         if(e.keyCode === 13){
             e.preventDefault();
-            Pantalla.contenedor.innerHTML = ''
+            this.titulado.innerHTML = `Resultado de búsqueda`
+            this.contenedor.innerHTML = ''
             Conexion.iniciarConexion();
             this.inputBuscador.value = ''
+            this.divBotones.innerHTML= ''
         }
+    }, 
+
+    volverInicio(){
+        Pantalla.titulado.innerHTML = `Listado`
+        Pantalla.contenedor.innerHTML = ''
+        Pantalla.inputBuscador.value = '';
+        Pantalla.estado.pagina = 1
+        Conexion.iniciarConexion();
+        console.log("pantalla inicio")
+
     }
 }
 
 //eventos
 Pantalla.buscadorBtn.addEventListener('click',()=>{
-            Pantalla.contenedor.innerHTML = ''
+    location.href = './index.html'
+        Pantalla.contenedor.innerHTML = ''
         Conexion.iniciarConexion();
         Pantalla.inputBuscador.value = ''
+        Pantalla.divBotones.innerHTML= ''
 } )
 
 Pantalla.divBotones.addEventListener('click', (e) => {
     Pantalla.contenedor.innerHTML = ''
     let btnSelecc = e.target;
-    // btnSelecc.setAttribute("class", "seleccionado")
     Pantalla.estado.pagina = parseInt(btnSelecc.value)
-    Conexion.iniciarConexion();
+    Conexion.iniciarConexion();   
 })
 
-Pantalla.header.addEventListener('click', () => {
-    Pantalla.contenedor.innerHTML = ''
-    Pantalla.inputBuscador.value = '';
-    Pantalla.estado.pagina = 1
-    Conexion.iniciarConexion();
-})
+Pantalla.header.addEventListener('click', Pantalla.volverInicio)
